@@ -48,7 +48,7 @@ public class AddCustomerActivity extends AppCompatActivity {
     MaterialButton saveBtn;
 
     //    Server
-    String URL = "http://192.168.1.26:2000/addCustomer";
+    String URL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,11 @@ public class AddCustomerActivity extends AppCompatActivity {
 
         Window window = getWindow();
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.cus_det_col));
+
+        HelperApi api = new HelperApi();
+        URL = api.getAddCustomerAPI();
+
+        Log.e("URL" , URL);
 
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

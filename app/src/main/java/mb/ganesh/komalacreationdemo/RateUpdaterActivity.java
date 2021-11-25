@@ -41,7 +41,7 @@ public class RateUpdaterActivity extends AppCompatActivity {
     Toolbar toolbar;
 
 //    Server
-    String URL = "http://192.168.1.26:2000/milkRateUpdate";
+    String URL = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,9 @@ public class RateUpdaterActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Window window = getWindow();
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.rate_upd_col));
+
+        HelperApi api = new HelperApi();
+        URL = api.getRateUpdateAPI();
 
         toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);

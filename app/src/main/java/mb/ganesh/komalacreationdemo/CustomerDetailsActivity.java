@@ -39,7 +39,7 @@ public class CustomerDetailsActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<CustomerDetailsModel> list = new ArrayList<>();
-    String URL = "http://192.168.1.26:2000/allCustomer";
+    String URL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,9 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         Window window = getWindow();
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.cus_det_col));
+
+        HelperApi api = new HelperApi();
+        URL = api.getAllCustomerAPI();
 
         toolbar = findViewById(R.id.toolBar);
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white));
